@@ -18,13 +18,12 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
 ]
+dependencies = []
 
 [project.urls]
 Repository = "https://github.com/searchs/pysolo"
 Issues = "https://github.com/searchs/pysolo/issues"
 Changelog = "https://github.com/searchs/pysolo/blob/main/CHANGELOG.md"
-
-dependencies = []
 
 [project.optional-dependencies]
 frames = ["polars>=1.0.0", "pandas>=2.0.0"]
