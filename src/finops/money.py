@@ -33,4 +33,6 @@ class Money:
             A new Money instance with the quantized amount.
         """
         q = Decimal(exp)
-        return Money(amount=self.amount.quantize(q, rounding=rounding), currency=self.currency)
+        return Money(
+            amount=self.amount.quantize(q, rounding=rounding), currency=self.currency
+        )
