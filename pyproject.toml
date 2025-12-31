@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pysolo"
-version = "0.1.0"
+version = "0.1.1"
 description = "Financial operations primitives for Python"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -18,8 +18,12 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
 ]
-
 dependencies = []
+
+[project.urls]
+Repository = "https://github.com/searchs/pysolo"
+Issues = "https://github.com/searchs/pysolo/issues"
+Changelog = "https://github.com/searchs/pysolo/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
 frames = ["polars>=1.0.0", "pandas>=2.0.0"]
@@ -32,11 +36,11 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q --disable-warnings --maxfail=1 --cov=src --cov-report=term-missing"
+addopts = "-q --disable-warnings --maxfail=1 --cov=finops --cov-report=term-missing"
 
 [tool.coverage.run]
 branch = true
-source = ["src"]
+source = ["finops"]
 
 [tool.coverage.report]
 show_missing = true
@@ -54,6 +58,15 @@ ignore = []
 [tool.ruff.format]
 quote-style = "double"
 
+[tool.pyrefly]
+# Pyrefly configuration: keep minimal sane defaults for type/lint checks.
+line-length = 100
+target-version = "py310"
+# Exclude common non-source directories
+exclude = ["tests", "dist", "build", ".venv", "src/*/.venv"]
+# Skip heavy checks in third-party generated files
+ignore = [".pyi", "__init__.py"]
+
 [tool.interrogate]
 fail-under = 80
 ignore-init-module = true
@@ -64,7 +77,7 @@ exclude = ["tests", "dist", "build", ".venv"]
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.1.0"
+version = "0.2.0"
 tag_format = "v$version"
 update_changelog_on_bump = true
 

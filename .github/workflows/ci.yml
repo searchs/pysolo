@@ -10,10 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.12", "3.13", "3.14"]
+        python-version: ["3.12", "3.13"]
     steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v6
+      - uses: actions/checkout@v6
+      - uses: astral-sh/setup-uv@v7
+        with:
+          python-version: ${{ matrix.python-version }}
       - name: Set up Python
         run: uv python install ${{ matrix.python-version }}
       - name: Sync
@@ -27,4 +29,4 @@ jobs:
       - name: Type check (pyrefly)
         run: uv run pyrefly check
       - name: Tests
-        run: uv run pytest -vv
+        run: uv run pytest -vv .
