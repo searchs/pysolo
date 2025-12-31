@@ -1,0 +1,85 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pysolo"
+version = "0.1.0"
+description = "Financial operations primitives for Python"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Ola Ajibode" }]
+keywords = ["finance", "ledger", "accounting", "money", "operations"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+frames = ["polars>=1.0.0", "pandas>=2.0.0"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --disable-warnings --maxfail=1 --cov=pysolo --cov-report=term-missing"
+
+[tool.coverage.run]
+branch = true
+source = ["pysolo"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 90
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.interrogate]
+fail-under = 80
+ignore-init-module = true
+ignore-private = true
+ignore-magic = true
+verbose = 1
+exclude = ["tests", "dist", "build", ".venv"]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.1.0"
+tag_format = "v$version"
+update_changelog_on_bump = true
+
+[dependency-groups]
+dev = [
+    "commitizen>=4.11.0",
+    "coverage>=7.13.1",
+    "interrogate>=1.7.0",
+    "pandas>=2.3.3",
+    "polars>=1.36.1",
+    "pre-commit>=4.5.1",
+    "pyrefly>=0.46.3",
+    "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.14.10",
+    "ty>=0.0.8",
+    "wheel>=0.45.1",
+]
