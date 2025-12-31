@@ -2,9 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased
+## v0.3.0 (2025-12-31)
 
-- Release: small fixes and initial test/lint/ci improvements
+### Feat
+
+- add full automation for versioning and PyPI publishing
 
 ## v0.2.0 (2025-12-31)
 
