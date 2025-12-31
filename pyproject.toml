@@ -32,11 +32,11 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q --disable-warnings --maxfail=1 --cov=src --cov-report=term-missing"
+addopts = "-q --disable-warnings --maxfail=1 --cov=finops --cov-report=term-missing"
 
 [tool.coverage.run]
 branch = true
-source = ["src"]
+source = ["finops"]
 
 [tool.coverage.report]
 show_missing = true
