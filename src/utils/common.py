@@ -22,9 +22,7 @@ def is_business_day(d: dd, holidays: list[str] | None = None) -> bool:
         True if ``d`` is a weekday and not in ``holidays``; otherwise False.
     """
 
-    return d.weekday() < 5 and (
-        not holidays or d.strftime("%Y-%m-%d") not in set(holidays)
-    )
+    return d.weekday() < 5 and (not holidays or d.strftime("%Y-%m-%d") not in set(holidays))
 
 
 def previous_business_day(as_of: dd, holidays: list[str] | None = None) -> dd:

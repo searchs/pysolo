@@ -52,6 +52,4 @@ class Money:
         """
 
         q = Decimal(exp)
-        return Money(
-            amount=self.amount.quantize(q, rounding=rounding), currency=self.currency
-        )
+        return Money(amount=self.amount.quantize(q, rounding=rounding), currency=self.currency)
