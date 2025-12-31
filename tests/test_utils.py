@@ -1,6 +1,6 @@
 from datetime import date
 
-from src.utils.common import is_business_day, previous_business_day
+from utils.common import is_business_day, previous_business_day
 
 
 def test_is_business_day_weekday():
