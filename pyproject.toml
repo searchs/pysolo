@@ -54,6 +54,15 @@ ignore = []
 [tool.ruff.format]
 quote-style = "double"
 
+[tool.pyrefly]
+# Pyrefly configuration: keep minimal sane defaults for type/lint checks.
+line-length = 100
+target-version = "py310"
+# Exclude common non-source directories
+exclude = ["tests", "dist", "build", ".venv", "src/*/.venv"]
+# Skip heavy checks in third-party generated files
+ignore = [".pyi", "__init__.py"]
+
 [tool.interrogate]
 fail-under = 80
 ignore-init-module = true
