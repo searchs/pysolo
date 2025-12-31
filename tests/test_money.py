@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from pysolo.money import Currency, Money
+from finops.money import Currency, Money
 
 
 def test_money_quantize():

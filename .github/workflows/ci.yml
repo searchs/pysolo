@@ -3,17 +3,17 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [ main ]
+    branches: [main, develop]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.10", "3.11", "3.12", "3.13"]
+        python-version: ["3.12", "3.13", "3.14"]
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v3
+      - uses: astral-sh/setup-uv@v6
       - name: Set up Python
         run: uv python install ${{ matrix.python-version }}
       - name: Sync
@@ -27,4 +27,4 @@ jobs:
       - name: Type check (pyrefly)
         run: uv run pyrefly check
       - name: Tests
-        run: uv run pytest
+        run: uv run pytest -vv

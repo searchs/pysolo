@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_NAME="${1:-pysolo}"
+PROJECT_NAME="${1:-finops}"
 PKG_NAME="${PROJECT_NAME//-/_}"
 
 if [[ -d "$PROJECT_NAME" ]]; then
@@ -20,7 +20,7 @@ mkdir -p "src/${PKG_NAME}" tests .github/workflows scripts
 
 cat > "src/${PKG_NAME}/__init__.py" <<'PY'
 """
-pysolo: Financial operations primitives for Python.
+finops: Financial operations primitives for Python.
 
 Public API should be re-exported here as it stabilises.
 """
@@ -51,7 +51,7 @@ touch "src/${PKG_NAME}/py.typed"
 
 cat > "tests/test_money.py" <<'PY'
 from decimal import Decimal
-from pysolo.money import Money, Currency
+from finops.money import Money, Currency
 
 def test_money_quantize():
     m = Money(amount=Decimal("10.005"), currency=Currency("GBP"))
